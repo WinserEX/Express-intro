@@ -37,7 +37,7 @@ app.get('/dogs', (req, res) => {
  app.get('/search', (req, res) => {
    const { q } = req.query;
    if(!q) {
-      res.send(`<p>Nothing found if nothing searched<p>`)
+      res.send(`<p>Nothing found if nothing searched, dude<p>`)
    }
    res.send(`<h1>Your query is ${q}</h1>`);
  })
