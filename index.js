@@ -33,14 +33,18 @@ app.get('/dogs', (req, res) => {
  app.post('/cats', (req, res) => {
     res.send("Rawwwr");
  })
-
- app.get('*', (req, res) => {
-    res.send("I don't know that path");
+//Requests a query string from url
+ app.get('/search', (req, res) => {
+   const { q } = req.query;
+   if(!q) {
+      res.send(`<p>Nothing found if nothing searched<p>`)
+   }
+   res.send(`<h1>Your query is ${q}</h1>`);
  })
 
- app.get('/search', (req, res) => {
-   console.log(req.query);
-   res.send('hi');
+ //Catches wrong paths, always goes last
+ app.get('*', (req, res) => {
+    res.send("I don't know that path");
  })
 
 // /cats => meow
