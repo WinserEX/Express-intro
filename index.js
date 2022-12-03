@@ -15,6 +15,12 @@ app.get('/', (req, res) => {
     res.send("Home");
  })
 
+ app.get('/r/:subreddit/:postId', (req, res) => {
+    console.log(req.params);
+    const { subreddit, postId } = req.params;
+    res.send(`<h1>Viewing post ID: ${postId} on ${subreddit}</h1>`);
+ })
+
 app.get('/cats', (req, res) => {
    res.send("Meow");
 })
@@ -30,6 +36,11 @@ app.get('/dogs', (req, res) => {
 
  app.get('*', (req, res) => {
     res.send("I don't know that path");
+ })
+
+ app.get('/search', (req, res) => {
+   console.log(req.query);
+   res.send('hi');
  })
 
 // /cats => meow
