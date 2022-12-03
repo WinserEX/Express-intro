@@ -16,7 +16,6 @@ app.get('/', (req, res) => {
  })
 
  app.get('/r/:subreddit/:postId', (req, res) => {
-    console.log(req.params);
     const { subreddit, postId } = req.params;
     res.send(`<h1>Viewing post ID: ${postId} on ${subreddit}</h1>`);
  })
